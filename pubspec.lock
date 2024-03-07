@@ -89,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
+  espresso:
+    dependency: "direct dev"
+    description:
+      name: espresso
+      sha256: "3b7c6b7aa8c00d6c075f30170daa6efc5cb125ccac45f0103f0627cc44da9247"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0+7"
   fake_async:
     dependency: transitive
     description:
