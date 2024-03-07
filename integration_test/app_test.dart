@@ -14,6 +14,7 @@ void main() {
       ];
 
       for (var icon in iconKeys) {
+        await widgetTester.pumpAndSettle(const Duration(seconds: 1));
         await widgetTester.tap(find.byKey(ValueKey(icon)));
         await widgetTester.pumpAndSettle(const Duration(seconds: 1));
         expect(find.text('Added to favorites.'), findsOneWidget);
@@ -29,10 +30,13 @@ void main() {
       ];
 
       for (var icon in removeIconKeys) {
-        await widgetTester.tap(find.byKey(ValueKey(icon)));
         await widgetTester.pumpAndSettle(const Duration(seconds: 1));
+        await widgetTester.tap(find.byKey(ValueKey(icon)));
+        await widgetTester.pumpAndSettle(const Duration(seconds: 2));
         expect(find.text('Removed from favorites.'), findsOneWidget);
       }
+
+      expect(find.byIcon(Icons.close), findsNothing);
     });
   });
 }
